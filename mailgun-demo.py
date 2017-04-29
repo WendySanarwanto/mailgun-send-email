@@ -2,8 +2,8 @@ import time
 from EmailClients import MailGunClient
 
 
-# Main Program
 def main():
+    """ Main Program """
     # Instantiate mailgunclient class
     api_key = "" # TODO: Write down the API key here
     domain = "" # TODO: Write down your mail gun's domain 
