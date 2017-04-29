@@ -17,10 +17,15 @@ class MailGunClient:
         """
             Compose email message by specified 'from' email address, recipient's email address(es), subject and text
         """
-        return requests.post(
-            self.api_url + self.messages_resource_path, 
-            auth=("api", self.api_key),
-            data={"from": _from,
-                  "to": to,
-                  "subject": subject,
-                  "text": text})
+        response = ""
+        try:
+            response = requests.post(
+                        self.api_url + self.messages_resource_path, 
+                        auth=("api", self.api_key),
+                        data={"from": _from,
+                            "to": to,
+                            "subject": subject,
+                            "text": text})
+        except Exception, exception:
+            response = exception.message
+        return response
